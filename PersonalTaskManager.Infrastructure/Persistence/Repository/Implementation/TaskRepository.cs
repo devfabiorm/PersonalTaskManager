@@ -12,9 +12,9 @@ namespace PersonalTaskManager.Infrastructure.Persistence.Repository.Implementati
     {
         private readonly PersonalTaskManagerDbContext _context;
 
-        public TaskRepository()
+        public TaskRepository(PersonalTaskManagerDbContext context)
         {
-            _context = new PersonalTaskManagerDbContext();
+            _context = context;
         }
 
         public async Task CreateAsync(PersonalTask task)

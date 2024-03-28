@@ -1,18 +1,19 @@
 ﻿using Microsoft.Extensions.Logging;
 using PersonalTaskManager.Core.Models;
 using PersonalTaskManager.Infrastructure.Persistence.Repository.Implementation;
+using PersonalTaskManager.Infrastructure.Persistence.Repository.Interface;
 using System.Threading.Tasks;
 
 namespace PersonalTaskManager.Application.Commands.CreateTask
 {
     public class CreateTaskCommandHandler
     {
-        private readonly TaskRepository _taskRepository;
+        private readonly ITaskRepository _taskRepository;
         private readonly ILogger _logger;
 
-        public CreateTaskCommandHandler()
+        public CreateTaskCommandHandler(ITaskRepository taskRepository)
         {
-            _taskRepository = new TaskRepository();
+            _taskRepository = taskRepository;
             _logger = new LoggerFactory().CreateLogger<CreateTaskCommandHandler>();
         }
 

@@ -13,7 +13,7 @@ namespace PersonalTaskManager.Application.Commands.ManageTasks
 
         public ManageTasksCommandHandler()
         {
-            _taskRepository = new TaskRepository();
+            //_taskRepository = new TaskRepository();
         }
 
         public Task<Unit> Handle(ManageTasksCommand request, CancellationToken cancellationToken)

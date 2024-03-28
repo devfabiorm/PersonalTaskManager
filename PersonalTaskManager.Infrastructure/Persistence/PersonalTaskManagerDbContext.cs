@@ -13,6 +13,12 @@ namespace PersonalTaskManager.Infrastructure.Persistence
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (optionsBuilder.IsConfigured) return;
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=PersonalTaskDb;Trusted_Connection=true");
+        }
+
         public DbSet<PersonalTask> Tasks { get; set; }
         public DbSet<Category> Categories { get; set; }
     }

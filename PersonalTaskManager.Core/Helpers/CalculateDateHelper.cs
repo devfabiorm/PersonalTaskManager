@@ -8,11 +8,11 @@ namespace PersonalTaskManager.Core.Helpers
         {
             var date = DateOnly.FromDateTime(DateTime.Now);
 
-            var comparisonDays = date.CompareTo(dateToCompare);
+            var comparisonDays = dateToCompare.CompareTo(date);
 
 
             if (comparisonDays < 0)
-                return $"A tarefa está atrasado há {comparisonDays} dia(s).";
+                return $"A tarefa está atrasada há {comparisonDays} dia(s).";
 
             if (comparisonDays == 0)
                 return "Sua tarefa venceu hoje";
