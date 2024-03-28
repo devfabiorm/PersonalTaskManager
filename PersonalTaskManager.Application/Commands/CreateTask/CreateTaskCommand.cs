@@ -1,13 +1,22 @@
 ﻿using MediatR;
+using PersonalTaskManager.Core.Models;
 using System;
 
 namespace PersonalTaskManager.Application.Commands.CreateTask
 {
-    public class CreateTaskCommand : IRequest<int>
+    public class CreateTaskCommand
     {
-        public string Title { get; set; }
-        public string  Details { get; set; }
-        public DateOnly LimitDate { get; set; }
-        public int CategoryId { get; set; }
+        public CreateTaskCommand(string title, string details, DateOnly limitDate, Category categoryId)
+        {
+            Title = title;
+            Details = details;
+            LimitDate = limitDate;
+            CategoryId = categoryId;
+        }
+
+        public string Title { get; }
+        public string  Details { get; }
+        public DateOnly LimitDate { get; }
+        public Category CategoryId { get; }
     }
 }
