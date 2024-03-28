@@ -18,7 +18,14 @@ namespace PersonalTaskManager.Application.Commands.CreateTask
 
         public async Task<int> Handle(CreateTaskCommand request)
         {
-            var task = new PersonalTask(request.Title, request.LimitDate, request.CategoryId, request.Details);
+            var task = new PersonalTask
+            {
+                Title = request.Title,
+                Description = request.Details,
+                Category = request.Category,
+                LimitDate = request.LimitDate,
+                Status = Core.Enums.ETaskStatus.Created
+            };
 
             _logger.LogInformation("Saving data");
             await _taskRepository.CreateAsync(task);

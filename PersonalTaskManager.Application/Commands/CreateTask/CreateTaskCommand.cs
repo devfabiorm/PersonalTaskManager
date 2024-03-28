@@ -11,12 +11,12 @@ namespace PersonalTaskManager.Application.Commands.CreateTask
             Title = title;
             Details = details;
             LimitDate = limitDate;
-            CategoryId = categoryId;
+            Category = categoryId;
         }
 
         public string Title { get; }
         public string  Details { get; }
         public DateOnly LimitDate { get; }
-        public Category CategoryId { get; }
+        public Category Category { get; }
     }
 }
