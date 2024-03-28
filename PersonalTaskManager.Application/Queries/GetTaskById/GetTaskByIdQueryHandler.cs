@@ -1,17 +1,14 @@
 ﻿using MediatR;
-using PersonalTaskManager.Core.Models;
+using PersonalTaskManager.Application.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace PersonalTaskManager.Application.Queries.GetTaskById
 {
-    public class GetTaskByIdQueryHandler : IRequestHandler<GetTaskByIdQuery, PersonalTask>
+    public class GetTaskByIdQueryHandler : IRequestHandler<GetTaskByIdQuery, PersonalTaskViewModel>
     {
-        public Task<PersonalTask> Handle(GetTaskByIdQuery request, CancellationToken cancellationToken)
+        public Task<PersonalTaskViewModel> Handle(GetTaskByIdQuery request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
