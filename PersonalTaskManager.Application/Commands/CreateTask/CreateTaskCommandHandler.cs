@@ -19,7 +19,7 @@ namespace PersonalTaskManager.Application.Commands.CreateTask
 
         public async Task<int> Handle(CreateTaskCommand request, CancellationToken cancellationToken)
         {
-            var category = _categoryRepository.GetById(request.CategoryId);
+            var category = await _categoryRepository.GetById(request.CategoryId);
             var personalTask = new PersonalTask(request.Title, request.LimitDate, category);
 
             await _taskRepository.CreateAsync(personalTask);
